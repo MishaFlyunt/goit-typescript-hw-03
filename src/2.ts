@@ -16,7 +16,7 @@
 
 class Employee {
   // Заповніть модифікатори доступу
-  name: string;
+  public name: string;
   department: string;
   salary: number;
 
