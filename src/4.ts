@@ -23,13 +23,29 @@ class Person {
 }
 
 abstract class House {
-  protected pilotInCabin = false;
+  protected door: boolean = false;
+  protected key: Key;
 
-  public sitInPlane() {
-    this.pilotInCabin = true;
+  comeIn() {
+    if (this.door) {
+      this.tenants.push();
+    }
+  }
+  tenants: Person[];
+
+  abstract openDoor(key: Key): void;
+}
+
+class MyHouse extends House {
+  constructor(key: Key) {
+    super(key);
   }
 
-  public abstract startEngine(): boolean;
+  openDoor(key: Key) {
+    if (key === this.key) {
+      this.door = true;
+    }
+  }
 }
 
 const key = new Key();
